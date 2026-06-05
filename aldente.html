@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Al Dente · El punto justo para la reputación de tu negocio</title>
+<meta name="description" content="Consultora de Relaciones Públicas 100% especializada en gestión de crisis reputacional para negocios gastronómicos. Respuesta en menos de 24 horas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --carbon:#14110D;
+    --carbon-2:#1D1813;
+    --carbon-3:#262019;
+    --crema:#F4ECDB;
+    --crema-dim:#B7AC97;
+    --muted:#897F6C;
+    --oliva:#7F8E46;
+    --oliva-bright:#B0C265;
+    --albahaca:#C9D79A;
+    --quemado:#C24A28;
+    --line:rgba(244,236,219,.12);
+    --line-strong:rgba(244,236,219,.22);
+    --shadow:0 24px 60px -20px rgba(0,0,0,.7);
+    --max:1240px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    background:var(--carbon);
+    color:var(--crema);
+    font-family:'Archivo',sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    overflow-x:clip;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* grain texture overlay */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.04;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+  section{position:relative}
+
+  /* TYPE */
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:500;line-height:1.02;letter-spacing:-.01em}
+  .serif-i{font-style:italic;font-weight:400}
+  .display{font-size:clamp(2.9rem,9vw,6.4rem)}
+  .h2{font-size:clamp(2rem,5vw,3.6rem)}
+  .h3{font-size:clamp(1.4rem,3vw,2rem)}
+  .eyebrow{
+    font-family:'Archivo',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.34em;
+    text-transform:uppercase;color:var(--oliva-bright);display:inline-flex;align-items:center;gap:14px;
+  }
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--oliva-bright);display:inline-block}
+  .lead{font-size:clamp(1.05rem,1.6vw,1.2rem);color:var(--crema-dim);max-width:56ch}
+  .muted{color:var(--muted)}
+
+  /* BUTTONS */
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;font-family:'Archivo';font-weight:600;
+    font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;padding:16px 28px;border-radius:2px;
+    transition:.25s ease;cursor:pointer;border:1px solid transparent;
+  }
+  .btn-primary{background:var(--oliva-bright);color:var(--carbon)}
+  .btn-primary:hover{background:var(--albahaca);transform:translateY(-2px)}
+  .btn-ghost{border-color:var(--line-strong);color:var(--crema)}
+  .btn-ghost:hover{border-color:var(--oliva-bright);color:var(--oliva-bright)}
+
+  /* NAV */
+  header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:.3s ease}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:20px 28px;max-width:var(--max);margin:0 auto}
+  header.scrolled{background:rgba(20,17,13,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .logo{font-family:'Fraunces',serif;font-weight:600;font-size:1.5rem;letter-spacing:-.02em;display:flex;align-items:baseline;gap:1px}
+  .logo span{color:var(--oliva-bright)}
+  .logo .dot{width:9px;height:9px;background:var(--oliva-bright);display:inline-block;margin-left:3px}
+  .nav-links{display:flex;gap:34px;align-items:center}
+  .nav-links a{font-size:.82rem;font-weight:500;letter-spacing:.04em;color:var(--crema-dim);transition:.2s}
+  .nav-links a:hover{color:var(--crema)}
+  .nav-cta{font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:11px 20px;border:1px solid var(--oliva-bright);color:var(--oliva-bright);border-radius:2px;transition:.25s}
+  .nav-cta:hover{background:var(--oliva-bright);color:var(--carbon)}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+  .burger span{width:24px;height:2px;background:var(--crema);transition:.3s}
+
+  /* HERO */
+  .hero{min-height:100svh;display:flex;align-items:center;padding:130px 0 70px;overflow:hidden}
+  .hero::after{
+    content:"";position:absolute;top:-10%;right:-10%;width:60vw;height:60vw;border-radius:50%;
+    background:radial-gradient(circle,rgba(127,142,70,.22),transparent 62%);filter:blur(20px);z-index:0;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;position:relative;z-index:2}
+  .hero h1{margin:24px 0 26px}
+  .hero h1 .serif-i{color:var(--oliva-bright)}
+  .hero-stats{display:flex;gap:32px;margin-top:38px;flex-wrap:wrap}
+  .hero-stat{border-left:2px solid var(--oliva);padding-left:14px}
+  .hero-stat b{font-family:'Fraunces';font-size:1.7rem;font-weight:600;display:block;line-height:1}
+  .hero-stat small{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px}
+
+  /* GAUGE */
+  .gauge-card{
+    background:linear-gradient(160deg,var(--carbon-2),var(--carbon));
+    border:1px solid var(--line);border-radius:14px;padding:38px 34px 30px;box-shadow:var(--shadow);position:relative;
+  }
+  .gauge-card .tag{position:absolute;top:20px;right:22px;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .gauge-title{font-family:'Archivo';font-weight:600;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--oliva-bright);text-align:center;margin-bottom:6px}
+  .gauge-svg{width:100%;max-width:360px;margin:0 auto;display:block}
+  .needle{transform-origin:200px 178px;transform:rotate(-78deg);animation:cook 2.6s cubic-bezier(.5,1.4,.4,1) .6s forwards}
+  @keyframes cook{0%{transform:rotate(-78deg)}55%{transform:rotate(14deg)}75%{transform:rotate(-6deg)}100%{transform:rotate(0deg)}}
+  .gauge-labels{display:flex;justify-content:space-between;margin-top:6px}
+  .gl{text-align:center;flex:1}
+  .gl b{font-family:'Archivo';font-weight:700;font-size:.78rem;letter-spacing:.06em;display:block}
+  .gl small{font-size:.64rem;color:var(--muted);letter-spacing:.04em}
+  .gl.crudo b{color:var(--crema-dim)}
+  .gl.dente b{color:var(--oliva-bright)}
+  .gl.quemado b{color:var(--quemado)}
+
+  /* SECTION SHELL */
+  .sec{padding:clamp(80px,11vw,140px) 0}
+  .sec-head{max-width:64ch;margin-bottom:54px}
+  .sec-head h2{margin:20px 0 18px}
+
+  /* PROBLEM */
+  .problem{background:var(--carbon-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .stat-big{display:grid;grid-template-columns:auto 1fr;gap:46px;align-items:center}
+  .stat-num{font-family:'Fraunces';font-weight:600;font-size:clamp(5rem,16vw,11rem);line-height:.8;color:var(--oliva-bright)}
+  .stat-num sup{font-size:.34em;vertical-align:super;color:var(--crema)}
+  .stat-side p{font-size:clamp(1.1rem,2.4vw,1.55rem);font-family:'Fraunces';font-weight:400;line-height:1.3}
+  .stat-side cite{display:block;margin-top:16px;font-style:normal;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .insights{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:64px;border:1px solid var(--line)}
+  .insight{background:var(--carbon-2);padding:34px 28px}
+  .insight .num{font-family:'Fraunces';font-size:1.1rem;color:var(--oliva);font-weight:600}
+  .insight h4{font-size:1.15rem;margin:10px 0 10px;color:var(--crema)}
+  .insight p{font-size:.92rem;color:var(--crema-dim)}
+
+  /* CONCEPTO — three states */
+  .states{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
+  .state{border:1px solid var(--line);border-radius:12px;padding:38px 30px;background:var(--carbon-2);position:relative;overflow:hidden;transition:.3s}
+  .state:hover{transform:translateY(-6px);border-color:var(--line-strong)}
+  .state .ico{width:54px;height:54px;margin-bottom:22px}
+  .state h3{font-size:1.5rem;margin-bottom:10px}
+  .state p{color:var(--crema-dim);font-size:.95rem}
+  .state.dente{border-color:var(--oliva);background:linear-gradient(165deg,rgba(127,142,70,.16),var(--carbon-2))}
+  .state.dente::after{content:"EL PUNTO JUSTO";position:absolute;top:16px;right:-30px;transform:rotate(45deg);background:var(--oliva-bright);color:var(--carbon);font-size:.56rem;font-weight:700;letter-spacing:.14em;padding:5px 40px}
+  .state .tagline{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin-bottom:14px}
+  .state.crudo .tagline{color:var(--crema-dim)}
+  .state.dente .tagline{color:var(--oliva-bright)}
+  .state.quemado .tagline{color:var(--quemado)}
+
+  /* SERVICES */
+  .services{background:var(--carbon-2);border-top:1px solid var(--line)}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .svc{background:var(--carbon);padding:40px 32px;transition:.3s;position:relative}
+  .svc:hover{background:var(--carbon-3)}
+  .svc .n{font-family:'Fraunces';font-size:.9rem;color:var(--oliva);font-weight:600;letter-spacing:.05em}
+  .svc .ico{width:44px;height:44px;margin:18px 0 20px;color:var(--oliva-bright)}
+  .svc h3{font-size:1.3rem;margin-bottom:12px}
+  .svc p{font-size:.92rem;color:var(--crema-dim)}
+
+  /* PROCESS — recipe steps */
+  .recipe{position:relative;margin-top:40px}
+  .recipe::before{content:"";position:absolute;left:27px;top:14px;bottom:14px;width:2px;background:linear-gradient(var(--oliva),transparent)}
+  .step{display:grid;grid-template-columns:56px 1fr;gap:26px;padding:18px 0;align-items:start;position:relative}
+  .step .bullet{width:56px;height:56px;border-radius:50%;background:var(--carbon-2);border:1px solid var(--oliva);display:flex;align-items:center;justify-content:center;font-family:'Fraunces';font-weight:600;font-size:1.3rem;color:var(--oliva-bright);z-index:2}
+  .step h4{font-size:1.25rem;margin-bottom:4px}
+  .step p{color:var(--crema-dim);font-size:.94rem;max-width:60ch}
+
+  /* DIFERENCIALES */
+  .diff{background:var(--carbon-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .diff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
+  .diff-card{text-align:center;padding:34px 18px;border:1px solid var(--line);border-radius:12px;transition:.3s}
+  .diff-card:hover{border-color:var(--oliva);transform:translateY(-4px)}
+  .diff-card .big{font-family:'Fraunces';font-weight:600;font-size:2.4rem;color:var(--oliva-bright);line-height:1}
+  .diff-card h4{font-size:1rem;margin:14px 0 8px}
+  .diff-card p{font-size:.84rem;color:var(--muted)}
+
+  /* PLANES */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
+  .plan{border:1px solid var(--line);border-radius:14px;padding:38px 30px;background:var(--carbon-2);display:flex;flex-direction:column;transition:.3s}
+  .plan:hover{transform:translateY(-6px)}
+  .plan.featured{border-color:var(--oliva-bright);background:linear-gradient(170deg,rgba(127,142,70,.14),var(--carbon-2));box-shadow:var(--shadow)}
+  .plan .badge{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--oliva-bright);margin-bottom:14px;display:inline-block}
+  .plan.featured .badge{background:var(--oliva-bright);color:var(--carbon);padding:5px 12px;border-radius:2px}
+  .plan h3{font-size:1.7rem;margin-bottom:8px}
+  .plan .price{font-family:'Fraunces';font-size:1.05rem;color:var(--crema-dim);margin-bottom:24px;font-style:italic}
+  .plan ul{list-style:none;margin-bottom:30px;flex:1}
+  .plan li{font-size:.9rem;color:var(--crema-dim);padding:9px 0 9px 28px;position:relative;border-bottom:1px solid var(--line)}
+  .plan li::before{content:"";position:absolute;left:0;top:15px;width:14px;height:8px;border-left:2px solid var(--oliva-bright);border-bottom:2px solid var(--oliva-bright);transform:rotate(-45deg)}
+  .plan .btn{justify-content:center;width:100%}
+
+  /* TEAM */
+  .team{background:var(--carbon-2);border-top:1px solid var(--line)}
+  .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:46px}
+  .member{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--carbon);transition:.3s}
+  .member:hover{transform:translateY(-6px);border-color:var(--oliva)}
+  .member .avatar{height:150px;display:flex;align-items:center;justify-content:center;background:linear-gradient(150deg,var(--carbon-3),var(--carbon-2));position:relative}
+  .member .initials{font-family:'Fraunces';font-weight:600;font-size:2.6rem;color:var(--oliva-bright)}
+  .member .body{padding:24px 22px}
+  .member h4{font-size:1.15rem;margin-bottom:4px}
+  .member .role{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--oliva);font-weight:600;margin-bottom:12px}
+  .member p{font-size:.85rem;color:var(--muted)}
+
+  /* VALUES */
+  .values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:46px}
+  .value{background:var(--carbon);padding:36px 28px}
+  .value .ico{width:38px;height:38px;color:var(--oliva-bright);margin-bottom:18px}
+  .value h4{font-size:1.2rem;margin-bottom:8px}
+  .value p{font-size:.88rem;color:var(--crema-dim)}
+
+  /* QUOTE / CTA */
+  .cta{background:linear-gradient(170deg,var(--carbon-2),var(--carbon));border-top:1px solid var(--line);text-align:center}
+  .brand-quote{max-width:54ch;margin:0 auto 50px}
+  .brand-quote p{font-family:'Fraunces';font-style:italic;font-weight:400;font-size:clamp(1.3rem,3vw,2rem);line-height:1.35}
+  .brand-quote .mark{color:var(--oliva-bright)}
+  .cta-box{max-width:760px;margin:0 auto;border:1px solid var(--oliva);border-radius:16px;padding:clamp(36px,5vw,60px);background:rgba(127,142,70,.06)}
+  .cta-box h2{margin-bottom:14px}
+  .cta-box .lead{margin:0 auto 30px}
+  .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  /* FOOTER */
+  footer{background:var(--carbon);border-top:1px solid var(--line);padding:70px 0 36px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:50px}
+  .foot-grid h5{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--oliva-bright);margin-bottom:18px;font-family:'Archivo';font-weight:600}
+  .foot-grid p{font-size:.9rem;color:var(--crema-dim);max-width:40ch}
+  .foot-grid a{display:block;font-size:.9rem;color:var(--crema-dim);padding:5px 0;transition:.2s}
+  .foot-grid a:hover{color:var(--oliva-bright)}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:26px;flex-wrap:wrap;gap:14px}
+  .foot-bottom small{font-size:.78rem;color:var(--muted)}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* RESPONSIVE */
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;gap:44px}
+    .gauge-card{order:-1;max-width:440px}
+    .insights,.states,.svc-grid,.diff-grid,.plans,.team-grid,.values-grid{grid-template-columns:1fr 1fr}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:720px){
+    .nav-links{
+      position:fixed;inset:0 0 0 auto;width:78%;max-width:320px;background:var(--carbon-2);
+      flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.35s;
+      border-left:1px solid var(--line);padding:40px;
+    }
+    .nav-links.open{transform:none}
+    .nav-links a{font-size:1.05rem}
+    .burger{display:flex}
+    .insights,.states,.svc-grid,.diff-grid,.plans,.team-grid,.values-grid,.foot-grid{grid-template-columns:1fr}
+    .stat-big{grid-template-columns:1fr;gap:24px}
+    .recipe::before{left:21px}
+    .step{grid-template-columns:44px 1fr;gap:18px}
+    .step .bullet{width:44px;height:44px;font-size:1.05rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header id="header">
+  <nav>
+    <a href="#" class="logo">Al&nbsp;Den<span>te</span><i class="dot"></i></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#problema">El problema</a>
+      <a href="#concepto">Concepto</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Cómo trabajamos</a>
+      <a href="#equipo">Equipo</a>
+      <a href="#contacto" class="nav-cta">Diagnóstico gratis</a>
+    </div>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Relaciones Públicas · Gastronomía</span>
+      <h1 class="display">El punto justo<br>para la <span class="serif-i">reputación</span><br>de tu negocio.</h1>
+      <p class="lead">Consultora 100% especializada en gestión de crisis reputacional para negocios gastronómicos. Diagnóstico, prevención y respuesta estratégica — en menos de 24 horas.</p>
+      <div class="hero-cta">
+        <a href="#contacto" class="btn btn-primary">Pedí tu diagnóstico gratis →</a>
+        <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><b>&lt;24h</b><small>Tiempo de respuesta</small></div>
+        <div class="hero-stat"><b data-count="93" data-suffix="%">0%</b><small>Consulta reseñas antes de elegir</small></div>
+        <div class="hero-stat"><b>100%</b><small>Foco gastronómico</small></div>
+      </div>
+    </div>
+
+    <!-- DONENESS GAUGE -->
+    <div class="gauge-card reveal">
+      <span class="tag">Medidor de cocción</span>
+      <div class="gauge-title">¿En qué punto está tu reputación?</div>
+      <svg class="gauge-svg" viewBox="0 0 400 230" xmlns="http://www.w3.org/2000/svg" aria-label="Medidor: crudo, al dente, quemado">
+        <defs>
+          <linearGradient id="arc" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#B7AC97"/>
+            <stop offset="50%" stop-color="#B0C265"/>
+            <stop offset="100%" stop-color="#C24A28"/>
+          </linearGradient>
+        </defs>
+        <!-- track -->
+        <path d="M40 178 A160 160 0 0 1 360 178" fill="none" stroke="#262019" stroke-width="26" stroke-linecap="round"/>
+        <!-- colored arc -->
+        <path d="M40 178 A160 160 0 0 1 360 178" fill="none" stroke="url(#arc)" stroke-width="26" stroke-linecap="round" opacity=".9"/>
+        <!-- ticks -->
+        <g stroke="#14110D" stroke-width="2">
+          <line x1="200" y1="32" x2="200" y2="48"/>
+          <line x1="93" y1="76" x2="104" y2="88"/>
+          <line x1="307" y1="76" x2="296" y2="88"/>
+        </g>
+        <!-- needle -->
+        <g class="needle">
+          <line x1="200" y1="178" x2="200" y2="56" stroke="#F4ECDB" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="200" cy="178" r="13" fill="#F4ECDB"/>
+          <circle cx="200" cy="178" r="6" fill="#14110D"/>
+        </g>
+      </svg>
+      <div class="gauge-labels">
+        <div class="gl crudo"><b>CRUDO</b><small>Sin responder</small></div>
+        <div class="gl dente"><b>AL DENTE</b><small>El punto justo</small></div>
+        <div class="gl quemado"><b>QUEMADO</b><small>Mala reacción</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="sec problem" id="problema">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">El problema</span>
+      <h2 class="h2">En la cocina, un minuto<br>cambia todo. <span class="serif-i">En internet, también.</span></h2>
+    </div>
+    <div class="stat-big reveal">
+      <div class="stat-num"><span data-count="93">0</span><sup>%</sup></div>
+      <div class="stat-side">
+        <p>de los consumidores consulta reseñas online antes de elegir un negocio gastronómico. Una reseña negativa viral puede definir tu local en cuestión de minutos.</p>
+        <cite>Fuente: BrightLocal — Local Consumer Review Survey 2023</cite>
+      </div>
+    </div>
+    <div class="insights">
+      <div class="insight reveal">
+        <span class="num">Insight 01</span>
+        <h4>Saben que importa, no saben qué hacer</h4>
+        <p>La mayoría de los dueños reconoce el peso de la reputación online, pero no cuenta con herramientas, conocimientos ni protocolos para responder bien.</p>
+      </div>
+      <div class="insight reveal">
+        <span class="num">Insight 02</span>
+        <h4>Respuestas improvisadas y emocionales</h4>
+        <p>Frente a críticas percibidas como injustas, responden en caliente. Eso escala el conflicto en vez de contenerlo.</p>
+      </div>
+      <div class="insight reveal">
+        <span class="num">Insight 03</span>
+        <h4>No hay tiempo para monitorear</h4>
+        <p>Gestionar redes y reseñas demanda tiempo que la operación diaria del negocio no deja. Lo importante queda para después.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPTO -->
+<section class="sec" id="concepto">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">El concepto</span>
+      <h2 class="h2">Ni crudo, ni quemado.<br><span class="serif-i">Al dente.</span></h2>
+      <p class="lead">Somos el control de calidad de la reputación digital de tu negocio. El punto justo: actuar en el momento exacto, con la cabeza fría y la estrategia correcta.</p>
+    </div>
+    <div class="states">
+      <div class="state crudo reveal">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#B7AC97" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M8 13s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/></svg>
+        <span class="tagline">El error 1</span>
+        <h3>Crudo</h3>
+        <p>No responder. El silencio frente a una crítica deja que otros cuenten tu historia por vos.</p>
+      </div>
+      <div class="state dente reveal">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#B0C265" stroke-width="1.4"><path d="M20 6L9 17l-5-5"/></svg>
+        <span class="tagline">El punto justo</span>
+        <h3>Al Dente</h3>
+        <p>Respuesta rápida, estratégica y con tono de marca. Transformamos quejas en fidelidad.</p>
+      </div>
+      <div class="state quemado reveal">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#C24A28" stroke-width="1.4"><path d="M12 2s4 5 4 9a4 4 0 0 1-8 0c0-1.5.7-3 1.5-4"/><path d="M10 20h4"/></svg>
+        <span class="tagline">El error 2</span>
+        <h3>Quemado</h3>
+        <p>Reaccionar mal. Contestar en caliente o borrar comentarios incendia la situación.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="sec services" id="servicios">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Qué hacemos</span>
+      <h2 class="h2">Acompañamiento estratégico<br><span class="serif-i">antes, durante y después.</span></h2>
+    </div>
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <span class="n">01</span>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <h3>Diagnóstico reputacional</h3>
+        <p>Análisis de reseñas, comentarios, posicionamiento y percepción de marca. Detectamos puntos críticos, riesgos y oportunidades.</p>
+      </div>
+      <div class="svc reveal">
+        <span class="n">02</span>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2a7 7 0 0 0-7 7c0 3 2 5 2 7h10c0-2 2-4 2-7a7 7 0 0 0-7-7z"/><path d="M9 21h6"/></svg>
+        <h3>Gestión de crisis</h3>
+        <p>Intervención ante comentarios negativos, virales y reclamos públicos: análisis del caso, estrategia de respuesta y lineamientos de acción.</p>
+      </div>
+      <div class="svc reveal">
+        <span class="n">03</span>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 4h16v12H7l-3 3z"/><path d="M8 9h8M8 12h5"/></svg>
+        <h3>Redacción estratégica</h3>
+        <p>Respuestas profesionales para Google, Instagram, Facebook, TikTok y apps de delivery, adaptadas al tono de marca y al nivel de exposición.</p>
+      </div>
+      <div class="svc reveal">
+        <span class="n">04</span>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 12h4l2 6 4-12 2 6h6"/></svg>
+        <h3>Monitoreo reputacional</h3>
+        <p>Seguimiento continuo de menciones, reseñas y conversaciones para detectar conflictos antes de que escalen públicamente.</p>
+      </div>
+      <div class="svc reveal">
+        <span class="n">05</span>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 4h14v16l-7-3-7 3z"/></svg>
+        <h3>Protocolos de actuación</h3>
+        <p>Guías internas para el manejo de quejas, respuestas públicas y atención digital. Profesionalizamos tu comunicación.</p>
+      </div>
+      <div class="svc reveal">
+        <span class="n">06</span>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3L2 8l10 5 10-5-10-5z"/><path d="M6 10v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg>
+        <h3>Capacitaciones</h3>
+        <p>Formación introductoria para dueños y equipos sobre reputación online, atención al cliente y resolución de conflictos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="sec" id="proceso">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Cómo trabajamos</span>
+      <h2 class="h2">La receta: <span class="serif-i">seis pasos</span><br>para cada intervención.</h2>
+    </div>
+    <div class="recipe">
+      <div class="step reveal"><div class="bullet">1</div><div><h4>Recepción del caso</h4><p>Recibimos tu situación por WhatsApp o web. Te respondemos con la calma de quien ya estuvo en cocinas en hora pico.</p></div></div>
+      <div class="step reveal"><div class="bullet">2</div><div><h4>Análisis y diagnóstico</h4><p>Evaluamos el nivel de riesgo, el impacto en tu reputación y el contexto digital del comentario o crisis.</p></div></div>
+      <div class="step reveal"><div class="bullet">3</div><div><h4>Definición de estrategia</h4><p>Definimos tono, lineamientos y mensajes clave, siempre alineados a la identidad de tu marca.</p></div></div>
+      <div class="step reveal"><div class="bullet">4</div><div><h4>Redacción y validación interna</h4><p>Redactamos las respuestas y las revisamos internamente antes de que salga una sola palabra.</p></div></div>
+      <div class="step reveal"><div class="bullet">5</div><div><h4>Implementación</h4><p>Publicamos o te entregamos las respuestas listas. Rápido, prolijo y con criterio.</p></div></div>
+      <div class="step reveal"><div class="bullet">6</div><div><h4>Monitoreo y seguimiento</h4><p>Medimos resultados, seguimos la conversación y ajustamos. La reputación se cuida todos los días.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIALES -->
+<section class="sec diff">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Por qué Al Dente</span>
+      <h2 class="h2">No somos una agencia más.</h2>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-card reveal"><div class="big">&lt;24h</div><h4>Respuesta récord</h4><p>Sabemos que un servicio no se puede detener. Actuamos al instante.</p></div>
+      <div class="diff-card reveal"><div class="big">100%</div><h4>Foco gastronómico</h4><p>Hablamos tu idioma. Entendemos tiempos, riesgos y expectativas del rubro.</p></div>
+      <div class="diff-card reveal"><div class="big">$$</div><h4>Accesible</h4><p>Pensado para restaurantes de barrio y propuestas emergentes. Sin costos inalcanzables.</p></div>
+      <div class="diff-card reveal"><div class="big">1:1</div><h4>Personalizado</h4><p>Cada respuesta se adapta a tu marca y a cada caso. Nada de plantillas frías.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANES -->
+<section class="sec" id="planes">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Cómo contratarnos</span>
+      <h2 class="h2">Elegí el punto<br><span class="serif-i">de cocción.</span></h2>
+    </div>
+    <div class="plans">
+      <div class="plan reveal">
+        <span class="badge">Lanzamiento</span>
+        <h3>Diagnóstico</h3>
+        <div class="price">Gratis para los primeros clientes</div>
+        <ul>
+          <li>Análisis inicial de tu reputación online</li>
+          <li>Detección de puntos críticos y riesgos</li>
+          <li>Informe con recomendaciones concretas</li>
+          <li>Sin compromiso de continuidad</li>
+        </ul>
+        <a href="#contacto" class="btn btn-ghost">Pedir diagnóstico</a>
+      </div>
+      <div class="plan featured reveal">
+        <span class="badge">Más elegido</span>
+        <h3>Servicio puntual</h3>
+        <div class="price">Para crisis o situaciones concretas</div>
+        <ul>
+          <li>Intervención inmediata ante una crisis</li>
+          <li>Estrategia y redacción de respuestas</li>
+          <li>Lineamientos de acción para tu equipo</li>
+          <li>Ideal para necesidades urgentes</li>
+        </ul>
+        <a href="#contacto" class="btn btn-primary">Quiero resolver esto ya</a>
+      </div>
+      <div class="plan reveal">
+        <span class="badge">Recurrente</span>
+        <h3>Plan mensual</h3>
+        <div class="price">Acompañamiento continuo</div>
+        <ul>
+          <li>Monitoreo reputacional permanente</li>
+          <li>Asesoramiento y seguimiento de reseñas</li>
+          <li>Protocolos y prevención de crisis</li>
+          <li>Tranquilidad todos los meses</li>
+        </ul>
+        <a href="#contacto" class="btn btn-ghost">Quiero el plan</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPO -->
+<section class="sec team" id="equipo">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Quiénes somos</span>
+      <h2 class="h2">Un equipo chico,<br><span class="serif-i">una receta afilada.</span></h2>
+    </div>
+    <div class="team-grid">
+      <div class="member reveal">
+        <div class="avatar"><span class="initials">ML</span></div>
+        <div class="body"><h4>Mía Leonardi</h4><div class="role">Directora de proyecto</div><p>Coordinación general, gestión de clientes y decisiones estratégicas.</p></div>
+      </div>
+      <div class="member reveal">
+        <div class="avatar"><span class="initials">MB</span></div>
+        <div class="body"><h4>More Broner</h4><div class="role">Comunicación estratégica</div><p>Diseño de estrategias, gestión de crisis y definición del tono comunicacional.</p></div>
+      </div>
+      <div class="member reveal">
+        <div class="avatar"><span class="initials">RO</span></div>
+        <div class="body"><h4>Regina Oliva Sosa</h4><div class="role">Community Manager</div><p>Gestión de redes, publicación de contenido e implementación de respuestas.</p></div>
+      </div>
+      <div class="member reveal">
+        <div class="avatar"><span class="initials">SM</span></div>
+        <div class="body"><h4>Sofía Montesanto</h4><div class="role">Analista de reputación</div><p>Monitoreo de menciones, análisis de métricas y detección temprana de crisis.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALORES -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Nuestros valores</span>
+      <h2 class="h2">El sabor de cómo trabajamos.</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value reveal">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>
+        <h4>Precisión</h4><p>Actuar al dente: intervenir en el momento exacto, ni antes ni después.</p>
+      </div>
+      <div class="value reveal">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+        <h4>Transparencia</h4><p>Comunicación clara, sin recetas mágicas ni tecnicismos confusos.</p>
+      </div>
+      <div class="value reveal">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>
+        <h4>Rapidez</h4><p>La agilidad propia de una cocina en hora pico. Sin demoras.</p>
+      </div>
+      <div class="value reveal">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg>
+        <h4>Profesionalismo</h4><p>Objetividad y cabeza fría ante la crisis. Rigor con calidez.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec cta" id="contacto">
+  <div class="wrap">
+    <div class="brand-quote reveal">
+      <p>“Sabemos el sacrificio que hay detrás de cada plato. Por eso nos encargamos de apagar los <span class="mark">fuegos digitales</span> para que tu reputación se mantenga siempre al dente.”</p>
+    </div>
+    <div class="cta-box reveal">
+      <span class="eyebrow" style="justify-content:center">Estás a tiempo de responder</span>
+      <h2 class="h2" style="margin:18px 0 10px">Tu reputación, en su punto.</h2>
+      <p class="lead" style="text-align:center">Contanos qué está pasando. Te respondemos en menos de 24 horas con un primer diagnóstico, sin compromiso.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/" class="btn btn-primary">Escribinos por WhatsApp →</a>
+        <a href="mailto:hola@aldente.com.ar" class="btn btn-ghost">Enviar email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#" class="logo" style="font-size:1.7rem;margin-bottom:18px">Al&nbsp;Den<span>te</span><i class="dot"></i></a>
+        <p>Consultora de Relaciones Públicas especializada en gestión de crisis reputacional para el sector gastronómico argentino. El punto justo para la reputación de tu negocio.</p>
+      </div>
+      <div>
+        <h5>Misión</h5>
+        <p>Soluciones rápidas, estratégicas y accesibles para que los negocios gastronómicos mantengan el control de su imagen y fortalezcan el vínculo con sus clientes.</p>
+      </div>
+      <div>
+        <h5>Contacto</h5>
+        <a href="https://wa.me/">WhatsApp Business</a>
+        <a href="mailto:hola@aldente.com.ar">hola@aldente.com.ar</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <small>© 2026 Al Dente · Gestión de crisis reputacional gastronómica</small>
+      <small>El punto justo para la reputación de tu negocio</small>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll state
+  const header=document.getElementById('header');
+  addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>40));
+
+  // Mobile menu
+  const burger=document.getElementById('burger'), links=document.getElementById('navLinks');
+  burger.addEventListener('click',()=>links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+
+  // Reveal on scroll
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*70)+'ms';io.observe(el);});
+
+  // Animated counters
+  const counters=document.querySelectorAll('[data-count]');
+  const cio=new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(!e.isIntersecting)return;
+      const el=e.target, end=+el.dataset.count, suf=el.dataset.suffix||'';
+      let cur=0; const step=Math.max(1,Math.round(end/45));
+      const t=setInterval(()=>{cur+=step; if(cur>=end){cur=end;clearInterval(t);} el.textContent=cur+suf;},22);
+      cio.unobserve(el);
+    });
+  },{threshold:.5});
+  counters.forEach(c=>cio.observe(c));
+</script>
+</body>
+</html>
