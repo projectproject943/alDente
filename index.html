@@ -225,12 +225,57 @@
   .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 
   /* FOOTER */
-  footer{background:var(--carbon);border-top:1px solid var(--line);padding:70px 0 36px}
-  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:50px}
-  .foot-grid h5{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--oliva-bright);margin-bottom:18px;font-family:'Archivo';font-weight:600}
-  .foot-grid p{font-size:.9rem;color:var(--crema-dim);max-width:40ch}
-  .foot-grid a{display:block;font-size:.9rem;color:var(--crema-dim);padding:5px 0;transition:.2s}
-  .foot-grid a:hover{color:var(--oliva-bright)}
+  footer{background:var(--carbon-2);border-top:1px solid var(--line);position:relative;overflow:hidden}
+  footer::before{content:"";position:absolute;bottom:-30%;left:-8%;width:48vw;height:48vw;border-radius:50%;background:radial-gradient(circle,rgba(127,142,70,.16),transparent 64%);filter:blur(10px)}
+  .foot-inner{position:relative;z-index:2;padding:80px 0 36px}
+
+  /* lead-capture block */
+  .foot-lead{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center;padding-bottom:70px;border-bottom:1px solid var(--line);margin-bottom:64px}
+  .foot-lead .pitch h2{margin:18px 0 16px}
+  .foot-lead .pitch .lead{margin-bottom:24px}
+  .trust{display:flex;gap:26px;flex-wrap:wrap}
+  .trust span{display:flex;align-items:center;gap:9px;font-size:.84rem;color:var(--crema-dim)}
+  .trust svg{width:18px;height:18px;color:var(--oliva-bright);flex:none}
+
+  /* form card */
+  .form-card{background:var(--carbon);border:1px solid var(--line-strong);border-radius:16px;padding:38px 34px;box-shadow:var(--shadow)}
+  .form-card h3{font-size:1.4rem;margin-bottom:6px}
+  .form-card .sub{font-size:.86rem;color:var(--muted);margin-bottom:26px}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--oliva-bright);margin-bottom:8px}
+  .field label .req{color:var(--quemado)}
+  .field input,.field textarea{
+    width:100%;background:var(--carbon-2);border:1px solid var(--line);border-radius:6px;
+    color:var(--crema);font-family:'Archivo';font-size:.95rem;padding:13px 15px;transition:.2s;
+  }
+  .field textarea{resize:vertical;min-height:84px}
+  .field input::placeholder,.field textarea::placeholder{color:var(--muted)}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--oliva-bright);background:var(--carbon-3)}
+  .field.error input,.field.error textarea{border-color:var(--quemado)}
+  .field .err{display:none;font-size:.74rem;color:var(--quemado);margin-top:6px}
+  .field.error .err{display:block}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .form-card .btn{width:100%;justify-content:center;margin-top:8px}
+  .form-note{font-size:.74rem;color:var(--muted);text-align:center;margin-top:14px;line-height:1.5}
+  .form-success{display:none;text-align:center;padding:30px 10px}
+  .form-success.show{display:block;animation:fade .5s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .form-success .check{width:60px;height:60px;margin:0 auto 20px;border-radius:50%;background:rgba(127,142,70,.16);border:1px solid var(--oliva);display:flex;align-items:center;justify-content:center}
+  .form-success .check svg{width:28px;height:28px;color:var(--oliva-bright)}
+  .form-success h3{margin-bottom:10px}
+  .form-success p{color:var(--crema-dim);font-size:.92rem;max-width:36ch;margin:0 auto 22px}
+
+  /* footer columns */
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.1fr;gap:40px;margin-bottom:54px}
+  .foot-grid h5{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--oliva-bright);margin-bottom:18px;font-family:'Archivo';font-weight:600}
+  .foot-grid p{font-size:.88rem;color:var(--crema-dim);max-width:38ch}
+  .foot-grid a{display:block;font-size:.88rem;color:var(--crema-dim);padding:6px 0;transition:.2s}
+  .foot-grid a:hover{color:var(--oliva-bright);transform:translateX(3px)}
+  .foot-brand p{margin-top:16px}
+  .socials{display:flex;gap:12px;margin-top:18px}
+  .socials a{width:38px;height:38px;border:1px solid var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;padding:0;color:var(--crema-dim);transition:.25s}
+  .socials a:hover{border-color:var(--oliva-bright);color:var(--oliva-bright);transform:translateY(-3px)}
+  .socials svg{width:18px;height:18px}
   .foot-bottom{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:26px;flex-wrap:wrap;gap:14px}
   .foot-bottom small{font-size:.78rem;color:var(--muted)}
 
@@ -243,6 +288,7 @@
     .hero-grid{grid-template-columns:1fr;gap:44px}
     .gauge-card{order:-1;max-width:440px}
     .insights,.states,.svc-grid,.diff-grid,.plans,.team-grid,.values-grid{grid-template-columns:1fr 1fr}
+    .foot-lead{grid-template-columns:1fr;gap:40px}
     .foot-grid{grid-template-columns:1fr 1fr}
   }
   @media(max-width:720px){
@@ -262,6 +308,8 @@
     .recipe::before{left:21px}
     .step{grid-template-columns:44px 1fr;gap:18px}
     .step .bullet{width:44px;height:44px;font-size:1.05rem}
+    .form-row{grid-template-columns:1fr}
+    .form-card{padding:30px 24px}
   }
 </style>
 </head>
@@ -609,26 +657,101 @@
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="wrap">
+<footer id="footer-form">
+  <div class="wrap foot-inner">
+
+    <!-- LEAD CAPTURE -->
+    <div class="foot-lead">
+      <div class="pitch reveal">
+        <span class="eyebrow">Diagnóstico sin cargo</span>
+        <h2 class="h2">Contanos qué<br><span class="serif-i">está pasando.</span></h2>
+        <p class="lead">Dejanos tus datos y en menos de 24 horas te respondemos con un primer diagnóstico de tu reputación online. Sin compromiso, sin letra chica.</p>
+        <div class="trust">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Respuesta &lt;24h</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 6L9 17l-5-5"/></svg> Sin compromiso</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg> 100% confidencial</span>
+        </div>
+      </div>
+
+      <div class="form-card reveal">
+        <form id="leadForm" novalidate>
+          <h3>Pedí tu diagnóstico</h3>
+          <p class="sub">Te escribimos por WhatsApp o email.</p>
+          <div class="field">
+            <label for="f-nombre">Nombre y apellido <span class="req">*</span></label>
+            <input type="text" id="f-nombre" name="nombre" placeholder="Ej: Lucía Fernández" autocomplete="name">
+            <span class="err">Decinos cómo te llamás.</span>
+          </div>
+          <div class="field">
+            <label for="f-negocio">Nombre del negocio <span class="req">*</span></label>
+            <input type="text" id="f-negocio" name="negocio" placeholder="Ej: Trattoria San Telmo" autocomplete="organization">
+            <span class="err">¿Cómo se llama tu local?</span>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="f-wpp">WhatsApp <span class="req">*</span></label>
+              <input type="tel" id="f-wpp" name="wpp" placeholder="+54 9 11 ..." autocomplete="tel" inputmode="tel">
+              <span class="err">Necesitamos un número válido.</span>
+            </div>
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input type="email" id="f-email" name="email" placeholder="hola@tunegocio.com" autocomplete="email">
+              <span class="err">Revisá el email.</span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-msg">¿Qué está pasando?</label>
+            <textarea id="f-msg" name="mensaje" placeholder="Contanos brevemente la situación: reseñas negativas, un comentario viral, prevención..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Pedir mi diagnóstico gratis →</button>
+          <p class="form-note">Al enviar abrís un chat de WhatsApp con tu consulta ya cargada. No compartimos tus datos con terceros.</p>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <h3>¡Listo!</h3>
+          <p>Te abrimos WhatsApp con tu consulta cargada. Si no se abrió solo, tocá el botón de abajo.</p>
+          <a href="#" id="waLink" class="btn btn-primary" target="_blank" rel="noopener">Abrir WhatsApp →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLUMNS -->
     <div class="foot-grid">
-      <div>
-        <a href="#" class="logo" style="font-size:1.7rem;margin-bottom:18px">Al&nbsp;Den<span>te</span><i class="dot"></i></a>
-        <p>Consultora de Relaciones Públicas especializada en gestión de crisis reputacional para el sector gastronómico argentino. El punto justo para la reputación de tu negocio.</p>
+      <div class="foot-brand">
+        <a href="#" class="logo" style="font-size:1.7rem">Al&nbsp;Den<span>te</span><i class="dot"></i></a>
+        <p>Consultora de Relaciones Públicas especializada en gestión de crisis reputacional para el sector gastronómico argentino.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 13v4"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4c.5 2.5 2 4 4.5 4.3M14 4v9.5a3.5 3.5 0 1 1-3-3.46"/></svg></a>
+          <a href="https://wa.me/" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21l1.6-4.4A8 8 0 1 1 8 19.4z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg></a>
+        </div>
       </div>
       <div>
-        <h5>Misión</h5>
-        <p>Soluciones rápidas, estratégicas y accesibles para que los negocios gastronómicos mantengan el control de su imagen y fortalezcan el vínculo con sus clientes.</p>
+        <h5>Navegación</h5>
+        <a href="#problema">El problema</a>
+        <a href="#concepto">Concepto</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#proceso">Cómo trabajamos</a>
+        <a href="#equipo">Equipo</a>
+      </div>
+      <div>
+        <h5>Servicios</h5>
+        <a href="#servicios">Diagnóstico reputacional</a>
+        <a href="#servicios">Gestión de crisis</a>
+        <a href="#servicios">Redacción estratégica</a>
+        <a href="#servicios">Monitoreo</a>
+        <a href="#planes">Planes y precios</a>
       </div>
       <div>
         <h5>Contacto</h5>
         <a href="https://wa.me/">WhatsApp Business</a>
         <a href="mailto:hola@aldente.com.ar">hola@aldente.com.ar</a>
-        <a href="#">Instagram</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">TikTok</a>
+        <a href="#footer-form">Pedir diagnóstico →</a>
       </div>
     </div>
+
     <div class="foot-bottom">
       <small>© 2026 Al Dente · Gestión de crisis reputacional gastronómica</small>
       <small>El punto justo para la reputación de tu negocio</small>
@@ -669,6 +792,46 @@
     });
   },{threshold:.5});
   counters.forEach(c=>cio.observe(c));
+
+  // Lead form: inline validation + WhatsApp deep link
+  const form=document.getElementById('leadForm');
+  const WPP_NUMBER='5491100000000'; // ← reemplazar por el WhatsApp real de Al Dente
+  const setErr=(id,on)=>document.getElementById(id).closest('.field').classList.toggle('error',on);
+  const emailOk=v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const nombre=document.getElementById('f-nombre').value.trim();
+    const negocio=document.getElementById('f-negocio').value.trim();
+    const wpp=document.getElementById('f-wpp').value.trim();
+    const email=document.getElementById('f-email').value.trim();
+    const msg=document.getElementById('f-msg').value.trim();
+
+    let ok=true;
+    setErr('f-nombre',!nombre); if(!nombre)ok=false;
+    setErr('f-negocio',!negocio); if(!negocio)ok=false;
+    const wppBad=wpp.replace(/[^0-9]/g,'').length<8;
+    setErr('f-wpp',wppBad); if(wppBad)ok=false;
+    const mailBad=email!=='' && !emailOk(email);
+    setErr('f-email',mailBad); if(mailBad)ok=false;
+    if(!ok){form.querySelector('.field.error input').focus();return;}
+
+    const texto=`Hola Al Dente 👋 Quiero pedir mi diagnóstico gratis.\n\n`+
+      `*Nombre:* ${nombre}\n*Negocio:* ${negocio}\n*WhatsApp:* ${wpp}`+
+      (email?`\n*Email:* ${email}`:'')+
+      (msg?`\n\n*Situación:* ${msg}`:'');
+    const url=`https://wa.me/${WPP_NUMBER}?text=${encodeURIComponent(texto)}`;
+
+    document.getElementById('waLink').href=url;
+    form.style.display='none';
+    document.getElementById('formSuccess').classList.add('show');
+    window.open(url,'_blank','noopener');
+  });
+
+  // clear error as the user fixes a field
+  form.querySelectorAll('input,textarea').forEach(el=>{
+    el.addEventListener('input',()=>el.closest('.field').classList.remove('error'));
+  });
 </script>
 </body>
 </html>
